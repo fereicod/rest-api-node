@@ -1,0 +1,29 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "REST API Node",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fereicod/rest-api-node.git"
+  },
+  "keywords": [
+    "node",
+    "curso",
+    "nodejs"
+  ],
+  "author": "Fernando Espino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fereicod/rest-api-node/issues"
+  },
+  "homepage": "https://github.com/fereicod/rest-api-node#readme",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "zod": "3.22.4"
+  }
+}
