@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { readJSON } from '../utils.js'
 
-const movies = readJSON('../movies.json')
+const movies = readJSON('./movies.json')
 
 export class MovieModel {
     static getAll = async ({ genre }) => {
@@ -23,8 +23,6 @@ export class MovieModel {
             id: randomUUID(),
             ...input
         }
-        // Esto no seria REST, porque estamos guardando
-        // el estado de la aplicacion en memoria
         movies.push(newMovie)
     }
 
