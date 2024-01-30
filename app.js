@@ -2,8 +2,9 @@ import express, { json } from 'express'
 import cors from 'cors'
 
 import { validateMovie, validatePartialMovie } from './schema/movies.js'
+import { readJSON } from './utils.js'
 
-const movies = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'))
+const movies = readJSON('./movies.json')
 
 const app = express()
 app.disable('x-powered-by')
