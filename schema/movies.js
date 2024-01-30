@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod';
 
 // Definimos que tipo de valor se espera por cada campo y que tipo de respuesta de error customizado
 const movieSchema = z.object({
