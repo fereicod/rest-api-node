@@ -1,4 +1,3 @@
--- Active: 1706723467190@@127.0.0.1@3306@moviesdb
 -- Creación de la base de datos
 DROP DATABASE IF EXISTS moviesdb;
 CREATE DATABASE moviesdb;
