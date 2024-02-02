@@ -54,4 +54,30 @@ INSERT INTO movies_genres(movie_id, genre_id) VALUES
 ((SELECT id FROM movie WHERE title = 'Forrest Gump'), (SELECT id FROM genre WHERE name = 'Drama')),
 ((SELECT id FROM movie WHERE title = 'Forrest Gump'), (SELECT id FROM genre WHERE name = 'Romance'));
 
-SELECT BIN_TO_UUID(id) id, title, year, director, duration, rate FROM movie;
+SELECT BIN_TO_UUID(m.id) id, m.title, m.year, m.director, m.duration, m.rate, GROUP_CONCAT(g.name) AS genre
+FROM movie AS m
+JOIN movies_genres as mg
+ON m.id = mg.movie_id
+JOIN genre as g
+ON mg.genre_id = g.id
+GROUP BY m.id;
+
+
+SELECT BIN_TO_UUID(m.id) id, m.title, m.year, m.director, m.duration, m.rate, mg.genre_id as genre_id
+FROM movie AS m
+JOIN movies_genres as mg
+ON m.id = mg.movie_id;
+
+SELECT BIN_TO_UUID(m.id) id, m.title, m.year, m.director, m.duration, m.rate
+FROM movie as m
+JOIN (
+    SELECT BIN_TO_UUID(mt.id) id, mg.genre_id as genre_id
+    FROM movie AS mt
+    JOIN movies_genres as mg
+    ON mt.id = mg.movie_id
+    WHERE mg.genre_id=3
+) as t
+ON m.id=t.id
+JOIN genre as g
+ON t.genre_id = g.id
+GROUP BY m.id;
